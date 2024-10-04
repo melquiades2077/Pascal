@@ -15,9 +15,9 @@
   Assert((firstDay in 1..31) and (secondDay in 1..31) and (firstMonth in 1..12) and (secondMonth in 1..12));
   
   if (12 - firstMonth) < (12 - secondMonth) then
-    Print(1)
+    Print($'1{newline}')
   else if (12 - firstMonth) > (12 - secondMonth) then
-    Print(2)
+    Print($'2{newline}')
   else
     if (31 - firstDay) < (31 - secondDay) then
       PrintLn($'1{newline}')
@@ -39,5 +39,11 @@
       sumOfDays += 365;
   end;
   
-  Print($'Сумма дней в промежутке между двумя годами: {sumOfDays}');
+  PrintLn($'Сумма дней в промежутке между двумя годами: {sumOfDays}{newline}');
+  
+  var hour := ReadInteger('Введите количество часов для подсчета секунд: ');
+  Assert(hour >= 0);
+  
+  Print($'Количество секунд: {hour * 3600}');
+  
 end.
