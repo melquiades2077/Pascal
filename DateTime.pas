@@ -20,9 +20,24 @@
     Print(2)
   else
     if (31 - firstDay) < (31 - secondDay) then
-      Print(1)
+      PrintLn($'1{newline}')
     else if (31 - firstDay) > (31 - secondDay) then
-      Print(2)
+      PrintLn($'2{newline}')
     else
-      Print(0);
+      PrintLn($'0{newline}');
+    
+  var (firstYear, secondYear) := ReadInteger2('Введите два года для определения суммы дней между ними: ');
+  Assert((firstYear >= 0) and (secondYear >= 0));
+  
+  var sumOfDays := 0;
+  
+  for var i := firstYear to secondYear do
+  begin
+    if (i mod 4 = 0) and ((i mod 100 <> 0) or (i mod 400 = 0)) then
+      sumOfDays += 366
+    else
+      sumOfDays += 365;
+  end;
+  
+  Print($'Сумма дней в промежутке между двумя годами: {sumOfDays}');
 end.
